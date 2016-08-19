@@ -1,0 +1,32 @@
+<!--<list-obj></list-obj>-->
+
+<div>
+    <div>
+        <button ng-click="$ctrl.save(listName)">Save</button>
+        <input placeholder="enter new list tab here" ng-model="listName">
+    </div>
+
+    <table>
+        <!--task part-->
+        <!--<tr><th></th><td><div class="close-x" ng-click="$ctrl.close()">x</div></td></tr>-->
+
+
+            <th>Lists</th>
+
+            <tr ng-repeat="list in $ctrl.lists track by $index"
+                ng-click="$ctrl.selectList(list)" style="color:red;">
+                <td><span>{{list.listName}}</span></td>
+
+            <!--<button ng-click="$ctrl.apsodfj()"> </button>-->
+        </tr>
+    </table>
+
+    <!-- make so when u click on task its opens the square of obj list -->
+    <!--<div class="check-element animate-show" ng-show="checked">-->
+    <!--<span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.-->
+    <!--</div>-->
+    <div>
+        <list-obj lists="$ctrl.selectedList" on-close="$ctrl.close()" ></list-obj>
+    </div>
+
+</div>

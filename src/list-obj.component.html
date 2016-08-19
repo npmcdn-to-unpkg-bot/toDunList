@@ -1,0 +1,23 @@
+<div ng-if="$ctrl.selected.list">
+
+    <table>
+        <tr><th></th><td><div class="close-x" ng-click="$ctrl.close()">x</div></td></tr>
+        <tr>
+            <div>
+                <th>
+                    <button ng-click="$ctrl.addTask(task)">Add Task</button>
+                    <input placeholder="add new task" ng-model="task">
+                </th>
+            </div>
+        </tr>
+        <tr>
+
+            <div>
+               <td> <h2 ng-repeat="task in $ctrl.selected.list.tasks track by $index"
+                  ng-click="$ctrl.selectTask()"> <input type="checkbox" >  {{task}}</h2>
+               </td>
+            </div>
+        </tr>
+    </table>
+</div>
+
