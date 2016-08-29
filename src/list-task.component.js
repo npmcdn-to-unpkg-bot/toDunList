@@ -5,9 +5,16 @@
             templateUrl: "src/list-task.component.html",
             controller: charDetailController
             
-                  });
+                  })
+        .config(charDetailConfig);
 
-    function charDetailController(listService) {
+    function charDetailConfig($stateProvider) {
+        $stateProvider.state('main', {
+            url: '/main',
+            template: '<list-task></list-task>'
+        });
+    }
+    function charDetailController(listService ,toastr) {
 
         var vm = this;
         vm.lists = [];
@@ -18,6 +25,7 @@
         vm.taskBut = taskBut;
         vm.toTask = toTask;
         vm.close = close;
+        vm.toastr = toastr;
 
         vm.selectList = selectList;
 
@@ -28,6 +36,7 @@
         //     vm.onClose(); // call output binding
         // }
         function save(listName) {
+            toastr.info(listName ,"you have added List");
             // vm.getTask = vm.task;
             vm.lists.push({listName: listName, tasks: []});
             // console.log(lists);

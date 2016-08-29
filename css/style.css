@@ -58,3 +58,13 @@ th.sort-none:after {
     text-align: center;
     font-size: .7em;
 }
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+.about{
+    float: left;
+    color: red;
+}
+

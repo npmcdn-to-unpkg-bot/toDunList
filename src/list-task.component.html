@@ -1,9 +1,11 @@
 <!--<list-obj></list-obj>-->
 
-<div>
+<span>
     <div>
-        <button ng-click="$ctrl.save(listName)">Save</button>
+        <form ng-submit="$ctrl.save(listName)">
+        <button type="submit">Save</button>
         <input placeholder="enter new list tab here" ng-model="listName">
+        </form>
     </div>
 
     <table>
@@ -25,8 +27,15 @@
     <!--<div class="check-element animate-show" ng-show="checked">-->
     <!--<span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.-->
     <!--</div>-->
+
+     <h2> {{list.listName}}</h2>
     <div>
         <list-obj lists="$ctrl.selectedList" on-close="$ctrl.close()" ></list-obj>
     </div>
 
+    <button type="button" ng-click="toast"></button>
+</span>
+<br clear="both" />
+<div id="about">
+    <a ui-sref="about" style="float: right; border: solid;margin-top: 5%; margin-right:20%;">About</a>
 </div>

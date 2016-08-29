@@ -1,5 +1,7 @@
-<div ng-if="$ctrl.selected.list">
-
+<span ng-if="$ctrl.selected.list">
+    {{ctrl.selected.list}}
+    {{list}}
+    <a>{{list}}</a>
     <table>
         <tr><th></th><td><div class="close-x" ng-click="$ctrl.close()">x</div></td></tr>
         <tr>
@@ -13,11 +15,14 @@
         <tr>
 
             <div>
-               <td> <h2 ng-repeat="task in $ctrl.selected.list.tasks track by $index"
-                  ng-click="$ctrl.selectTask()"> <input type="checkbox" >  {{task}}</h2>
+               <td ng-repeat="task in $ctrl.selected.list.tasks">
+                   <img class="icon" ng-src="{{task.icon}}" ng-click="$ctrl.markComplete(task)" >
+                   <h2>{{task.name}}</h2>
+                   <button ng-click="$ctrl.deleteTask($index)">Delete Task</button>
                </td>
             </div>
         </tr>
     </table>
-</div>
+    <button ng-click="$ctrl.deleteCompleted()">Delete All Completed Tasks</button>
+</span>
 
